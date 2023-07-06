@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends
 
+from typing import List
+
 from sqlalchemy.orm.session import Session
 
 from src.schema import PostBase, PostDisplay
@@ -17,3 +19,8 @@ router = APIRouter(
 @router.post('/new', response_model=PostDisplay)
 def create_post(request: PostBase, db: Session = Depends(get_db)):
     return db_post.create_post(db, request)
+
+
+@router.get('/all', response_model=List[PostDisplay])
+def get_all(db: Session = Depends(get_db)):
+    return db_post.get_all(db)

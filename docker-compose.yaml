@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  app:
+  fastapi:
     build:
       context: .
       dockerfile: dockerfile
@@ -13,4 +13,21 @@ services:
 
     volumes:
       - .:/usr/src/app
+  
+
+  app:
+    image: node:20.3.1-alpine3.18
+
+    container_name: react-dev-env
     
+
+    ports:
+      - 3000:3000
+      
+    volumes:
+      - ./app:/home/node/app
+    
+    working_dir: /home/node/app
+    
+    command: npm start
+

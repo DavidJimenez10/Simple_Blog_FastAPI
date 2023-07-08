@@ -16,7 +16,7 @@ def index():
 
 models.Base.metadata.create_all(engine)
 
-app.mount('/images', StaticFiles(directory=config.folder_static_images), name='images')
+app.mount('/'+config.mount_images, StaticFiles(directory=config.folder_static_images), name='images')
 
 origins = [
     'http://localhost:3000'

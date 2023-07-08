@@ -1,4 +1,5 @@
-![Alt text](img/fastapi.svg)
+
+<img src="img/fastapi.svg" alt="FastAPI logo" width="200"/>
 
 # Simple Travel Blog
 

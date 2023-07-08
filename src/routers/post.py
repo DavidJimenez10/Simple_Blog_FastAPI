@@ -45,4 +45,4 @@ def upload_img(image: UploadFile = File(...)):
     with open(path, 'w+b') as buffer:
         shutil.copyfileobj(image.file, buffer)
 
-    return {'filename': path}
+    return {'filename': f'{config.mount_images}/{filename}'}
